@@ -1,28 +1,27 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <el-button type="primary" @click="open" size="small">编程式打开ElementUI Dialog</el-button>
+
+    <el-button type="primary" @click="openAntdv" size="small">编程式打开Antdv Dialog</el-button>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import ElDialog from './elementui-dialog';
+import AdDialog from './antd-dialog'
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  name: 'app',
+  methods: {
+    open() {
+      this.$openDialog(ElDialog)({ name: '123' })
+        .then(() => this.$message.success('任务成功'))
+        .catch(() => this.$message.warning('任务失败'));
+    },
+    openAntdv() {
+      this.$openDialog(AdDialog)({ name: '123' })
+        .then(() => this.$message.success('任务成功'))
+        .catch(() => this.$message.warning('任务失败'));
+    }
   }
-}
+};
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

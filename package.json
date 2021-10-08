@@ -2,13 +2,23 @@
   "name": "dialog-helper",
   "version": "0.1.0",
   "private": true,
+  "license": "MIT",
+  "keywords": [
+    "vue",
+    "element",
+    "element-ui",
+    "components"
+  ],
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build:publish": "vue-cli-service build --dest demo && node ./scripts/demo.js",
+    "build:bundle": "vue-cli-service build --target lib --name dialog-helper ./src/components/index.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "ant-design-vue": "^1.7.8",
     "core-js": "^3.6.5",
+    "element-ui": "^2.15.6",
     "vue": "^2.6.11"
   },
   "devDependencies": {
@@ -16,8 +26,11 @@
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "babel-eslint": "^10.1.0",
+    "chalk": "^4.1.2",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
+    "gh-pages": "^3.2.3",
+    "shelljs": "^0.8.4",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
