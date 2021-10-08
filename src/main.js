@@ -12,8 +12,11 @@ import Antd from 'ant-design-vue';
 Vue.use(Antd)
 import 'ant-design-vue/dist/antd.css';
 
-import ElDialogHelper from "./components";
-Vue.use(ElDialogHelper);
+// import ElDialogHelper from "./components";
+// Vue.use(ElDialogHelper);
+
+import ElDialogHelper from '@springleo/el-dialog-helper'
+Vue.use(ElDialogHelper)
 
 new Vue({
   render: h => h(App),
